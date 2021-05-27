@@ -27,9 +27,9 @@ public class MainActivity extends Activity {
         builder.setCommonName("Rohit Verma");
         builder.setOrganizationName("Rohit Verma");
         builder.setOrganizationUnit("Rohit Verma");
-        builder.setStateName("Bihar");
+        builder.setStateName("/*state*/");
         builder.setValidityYears(25);
-        builder.setCityOrLocalityName("Gaya");
+        builder.setCityOrLocalityName("/*City*/");
         builder.setCountryCode("IN");
         builder.setStoreType(KeyStoreHelper.Type.JKS);
         builder.setKeySize(KeyStoreHelper.Size.S_1024);
