@@ -53,6 +53,12 @@ public class KeyStoreHelper {
      }
      */
     
+    /*
+     keyStore = KeyStore.getInstance(ksfile, storePass);
+     // get keystore type
+     storetype = keyStore.getType();
+     */
+    
     public static void generate(Builder cl) throws IOException, GeneralSecurityException {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(cl.alg.toString());
         keyPairGenerator.initialize(cl.size.getValue(), SecureRandom.getInstance("SHA1PRNG"));
@@ -76,7 +82,7 @@ public class KeyStoreHelper {
         BigInteger serialNumber = new BigInteger(64, new SecureRandom());
         X509CertInfo info = new X509CertInfo();
         info.set(X509CertInfo.VALIDITY, interval);
-        info.set(X509CertInfo.SERIAL_NUMBER, new CertificateSerialNumber(serialNumber));
+        info.set(X509CertInfo.SERIAL_NUMBER, new CertificateSerialNumber(/*new Random().nextInt() & Integer.MAX_VALUE)*/serialNumber));
         info.set(X509CertInfo.SUBJECT, new CertificateSubjectName(owner));
         info.set(X509CertInfo.ISSUER, new CertificateIssuerName(owner));
         info.set(X509CertInfo.KEY, new CertificateX509Key(keyPair.getPublic()));
